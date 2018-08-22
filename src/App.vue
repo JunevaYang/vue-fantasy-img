@@ -1,29 +1,51 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <nav-view v-once class="nav-view" />
+    <router-view class="router-view" />
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import NavView from '@/views/Nav';
+
+export default {
+  name: 'App',
+  components: {
+    NavView
+  }
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+</script>
+
+<style lang="less">
+@import url('./less/normalize.css');
+
+html,
+body {
+  height: 100%;
+}
+
+</style>
+
+<style lang="less">
+@import url('./less/variables.less');
+
+#app {
+  display: flex;
+  height: 100%;
+
+  .nav-view {
+    width: @global-nav-width;
+    height: 100%;
+    border-right: 1px solid @color-secondary;
+    box-sizing: border-box;
+  }
+
+  .router-view {
+    flex: 1;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: auto;
   }
 }
 </style>
