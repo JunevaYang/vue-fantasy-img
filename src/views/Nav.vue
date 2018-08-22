@@ -1,5 +1,9 @@
 <template>
   <nav class="nav">
+    <div class="nav-logo">
+      <img src="@/assets/logo.png" alt="logo">
+      <span>图片管理</span>
+    </div>
     <router-link
       class="nav-item"
       v-for="(item, index) in navRoutes"
@@ -61,6 +65,21 @@ export default {
 .nav {
   display: flex;
   flex-direction: column;
+
+  &-logo {
+    height: 1.5em;
+    padding: 10px;
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    background-color: @color-primary;
+    color: @color-white-text;
+
+    img {
+      height: 100%;
+      margin-right: 10px;
+    }
+  }
 
   &-item {
     position: relative;
