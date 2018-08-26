@@ -11,9 +11,9 @@ import NavView from '@/views/Nav';
 export default {
   name: 'App',
   components: {
-    NavView
-  }
-}
+    NavView,
+  },
+};
 </script>
 
 <style lang="less">
@@ -24,6 +24,13 @@ body {
   height: 100%;
 }
 
+a,
+input,
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
 </style>
 
 <style lang="less">
@@ -32,20 +39,18 @@ body {
 #app {
   display: flex;
   height: 100%;
+  flex-direction: column;
 
   .nav-view {
-    width: @global-nav-width;
-    height: 100%;
-    border-right: 1px solid @color-secondary;
-    box-sizing: border-box;
+    width: 100%;
+    height: @global-nav-height;
+    background-color: @color-primary;
   }
 
   .router-view {
     flex: 1;
     height: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow: auto;
+    overflow: hidden;
   }
 }
 </style>

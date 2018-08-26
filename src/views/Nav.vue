@@ -1,61 +1,35 @@
 <template>
   <nav class="nav">
-    <div class="nav-logo">
-      <img src="@/assets/logo.png" alt="logo">
-      <span>图片管理</span>
+    <div class="logo-container">
+      <img class="logo" src="@/assets/logo-1.svg" alt="logo" width="30" height="30">
+      <h2 class="title">幻想蓝</h2>
     </div>
-    <router-link
-      class="nav-item"
-      v-for="(item, index) in navRoutes"
-      :key="item.to"
-      :class="{active: selectedIndex === index}"
-      :to="item.to"
-      @click.native="setSelectedIndex(index)">
-      <font-awesome-icon class="nav-item-icon" :icon="item.icon"></font-awesome-icon>
-      <span class="nav-item-text" v-html="item.text"></span>
-    </router-link>
+    <div class="nav-info">
+
+    </div>
+    <div class="controllers">
+      <span class="controller">
+        <button class="icon">
+          <img src="@/assets/controller-shrink.svg" alt="shrink" width="20" height="1">
+        </button>
+      </span>
+      <span class="controller">
+        <button class="icon">
+          <img src="@/assets/controller-restore-1.svg" alt="shrink" width="20" height="12">
+        </button>
+      </span>
+      <span class="controller">
+        <button class="icon">
+          <img src="@/assets/controller-close.svg" alt="shrink" width="15" height="15">
+        </button>
+      </span>
+    </div>
   </nav>
 </template>
 
 <script>
 export default {
   name: 'Nav',
-  data() {
-    return {
-      selectedIndex: 0,
-    };
-  },
-  computed: {
-    navRoutes() {
-      return [
-        {
-          text: '首&emsp;页',
-          to: '/index',
-          icon: 'home',
-        },
-        {
-          text: '设&emsp;置',
-          to: '/setting',
-          icon: 'cog',
-        },
-        {
-          text: '标&emsp;签',
-          to: '/tags',
-          icon: 'tags',
-        },
-        {
-          text: '关&emsp;于',
-          to: '/about',
-          icon: 'exclamation-circle',
-        },
-      ];
-    },
-  },
-  methods: {
-    setSelectedIndex(index) {
-      this.selectedIndex = index;
-    },
-  },
 };
 </script>
 
@@ -64,62 +38,51 @@ export default {
 
 .nav {
   display: flex;
-  flex-direction: column;
 
-  &-logo {
-    height: 1.5em;
-    padding: 10px;
-    margin-bottom: 2em;
+  .logo-container {
     display: flex;
     align-items: center;
-    background-color: @color-primary;
-    color: @color-white-text;
+    width: 160px;
 
-    img {
-      height: 100%;
-      margin-right: 10px;
+    .logo {
+      border-radius: 50%;
+      margin: 0 10px;
+    }
+
+    .title {
+      color: @color-text-white;
+      font-size: 22px;
     }
   }
 
-  &-item {
-    position: relative;
+  .nav-info {
+    flex: 1;
+  }
+
+  .controllers {
+    width: 140px;
     display: flex;
-    justify-content: center;
+    background-color: @color-secondary;
     align-items: center;
-    height: 40px;
-    transition: all 0.4s ease;
-    outline: none;
-    text-decoration: none;
-    color: @color-black-text;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0px;
-      left: 0px;
+    .controller {
+      flex: 1;
       height: 100%;
-      width: 5px;
-      background-color: transparent;
-      transition: all 0.4s ease;
-    }
+      display: flex;
+      justify-content: center;
 
-    &:hover {
-      color: darken(@color-black-text, 20%);
-    }
-
-    &.active {
-      color: darken(@color-black-text, 20%);
-      font-weight: bold;
-      background-color: @color-secondary;
-
-      &::before {
-        background-color: @color-primary;
+      &:hover {
+        .icon {
+          color: @color-text-white;
+        }
       }
-    }
 
-
-    &-icon {
-      margin-right: 0.5em;
+      .icon {
+        padding: 0;
+        display: flex;
+        height: 100%;
+        align-items: center;
+      }
     }
   }
 }

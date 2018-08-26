@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "yarn serve:electron",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -22,7 +23,7 @@
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-prettier": "^3.0.1",
-    "electron": "^2.0.2",
+    "electron": "^2.0.8",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "nedb": "^1.8.0",
