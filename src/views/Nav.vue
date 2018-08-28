@@ -5,7 +5,11 @@
       <h2 class="title">幻想蓝</h2>
     </div>
     <div class="nav-info">
+      <div class="searchbar">
+        <label for="search"></label>
+        <input type="text" id="search" placeholder="搜索栏">
 
+      </div>
     </div>
     <div class="controllers">
       <span class="controller">
@@ -57,6 +61,18 @@ export default {
 
   .nav-info {
     flex: 1;
+    display: flex;
+    align-items: center;
+
+    .searchbar {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding-left: 10px;
+
+      input {
+        height: 20px;
+      }
+    }
   }
 
   .controllers {
