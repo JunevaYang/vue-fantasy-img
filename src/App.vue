@@ -31,6 +31,10 @@ button {
   border: none;
   outline: none;
 }
+
+img {
+  display: block;
+}
 </style>
 
 <style lang="less">

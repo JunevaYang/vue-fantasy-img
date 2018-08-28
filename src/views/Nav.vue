@@ -6,10 +6,14 @@
     </div>
     <div class="nav-info">
       <div class="searchbar">
-        <label for="search"></label>
-        <input type="text" id="search" placeholder="搜索栏">
-
+        <input class="search-input" type="text" placeholder="搜索栏">
+        <button class="search-btn">
+          <img class="icon" src="@/assets/search-icon.svg" alt="search-icon" width="16" height="16">
+        </button>
       </div>
+      <button class="setting-icon">
+          <img class="icon" src="@/assets/cog.svg" alt="search-icon" width="20" height="20">
+      </button>
     </div>
     <div class="controllers">
       <span class="controller">
@@ -67,10 +71,16 @@ export default {
     .searchbar {
       background-color: #ffffff;
       border-radius: 20px;
-      padding-left: 10px;
+      padding: 0 13px;
+      display: flex;
+      align-items: center;
 
-      input {
-        height: 20px;
+      .search-input {
+        height: 26px;
+      }
+
+      .search-btn {
+        padding: 0;
       }
     }
   }
