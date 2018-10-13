@@ -48,7 +48,7 @@ img {
   .nav-view {
     width: 100%;
     height: @global-nav-height;
-    background-color: @color-primary;
+    background-color: --color-primary;
   }
 
   .router-view {

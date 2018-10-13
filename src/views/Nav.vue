@@ -58,7 +58,7 @@ export default {
     }
 
     .title {
-      color: @color-text-white;
+      color: --color-text-white;
       font-size: 22px;
     }
   }
@@ -88,7 +88,7 @@ export default {
   .controllers {
     width: 140px;
     display: flex;
-    background-color: @color-secondary;
+    background-color: --color-secondary;
     align-items: center;
 
     .controller {
@@ -99,7 +99,7 @@ export default {
 
       &:hover {
         .icon {
-          color: @color-text-white;
+          color: --color-text-white;
         }
       }
 

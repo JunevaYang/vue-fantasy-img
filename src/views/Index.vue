@@ -39,7 +39,7 @@ export default {
   }
 
   .tools-box {
-    border-right: 1px solid @color-text-gray;
+    border-right: 1px solid --color-text-gray;
     height: 100%;
     width: 160px;
   }
@@ -52,7 +52,7 @@ export default {
   .info-box {
     width: 300px;
     height: 100%;
-    border-left: 1px solid @color-text-gray;
+    border-left: 1px solid --color-text-gray;
   }
 }
 </style>
