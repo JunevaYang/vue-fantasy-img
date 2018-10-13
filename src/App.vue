@@ -21,11 +21,15 @@ export default {
 
 :root {
   // root variables
-  --color-primary: #217DFA;
-  --color-secondary: #005DFF;
-  --color-text-white: #fff;
-  --color-text-gray: #E9E9E9;
+  --color-primary: #217dfa;
+  --color-secondary: #005dff;
+  --color-text-white: #ffffff;
+  --color-text-gray: #e9e9e9;
   --color-text-black: #707070;
+
+  --color-white: #ffffff;
+  --color-gray: #e9e9e9;
+  --color-blue: #217dfa;
 }
 
 html,
