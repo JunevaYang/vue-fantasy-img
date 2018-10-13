@@ -1,8 +1,4 @@
 import { forceToArray } from '../tools/utils';
-/**
- * @typedef {('delete'|'remove'|'openDir'|'openFile'|'openImg'|'openImgInDir'|'choose'|'add')} Lang
- * @typedef {('zh-cn')} Languages
- */
 
 /**
  * @readonly
@@ -32,7 +28,7 @@ I18n.install = function(Vue, { lang = 'zh-cn' } = {}) {
 
   /**
    *
-   * @param {Lang | Array<Lang>} strings
+   * @param {import('./vue').keyWords | Array<import('./vue').keyWords>} strings
    * @return {string}
    */
   Vue.prototype.$lang = function(strings) {
@@ -42,7 +38,7 @@ I18n.install = function(Vue, { lang = 'zh-cn' } = {}) {
   };
 
   /**
-   * @param {Languages} lang
+   * @param {import('./vue').Languages} lang
    */
   Vue.prototype.$lang.setLanguage = function(lang) {
     _lang = lang;
