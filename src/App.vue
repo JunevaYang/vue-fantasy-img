@@ -32,6 +32,10 @@ export default {
   --color-blue: #217dfa;
 }
 
+* {
+  user-select: none;
+}
+
 html,
 body {
   height: 100%;
@@ -47,6 +51,7 @@ button {
 
 img {
   display: block;
+  -webkit-user-drag: none;
 }
 </style>
 

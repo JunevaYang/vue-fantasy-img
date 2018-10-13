@@ -2,7 +2,7 @@
   <div class="picture-tools">
     <button
       @click="addFolderClick"
-      class="add-folder">添加文件夹</button>
+      class="add-folder">{{$lang(['choose', 'dir'])}}</button>
     <ul
       v-for="folder in folders"
       :key="folder"
@@ -12,7 +12,7 @@
         :class="{active: currentSelectFolder === folder}"
         :title="folder"
         @click="currentSelectFolder=folder"
-        @click.right="popuMenu(folder)">{{folder | folderName}}</li>
+        @click.right="popupMenu(folder)">{{folder | folderName}}</li>
     </ul>
   </div>
 </template>
@@ -21,7 +21,6 @@
 import { mapState, mapMutations } from 'vuex';
 import { remote } from 'electron';
 import path from 'path';
-const { Menu, MenuItem } = remote;
 
 export default {
   name: 'PictureTools',
@@ -29,7 +28,7 @@ export default {
     return {
       menu: null,
       currentSelectFolder: null,
-      contextSelectFolder: null
+      contextSelectFolder: null,
     };
   },
   filters: {
@@ -47,38 +46,34 @@ export default {
   methods: {
     ...mapMutations(['addFolders', 'removeFolder', 'clearFolders']),
     _initContextMenu() {
-      this.menu = new Menu();
-
-      this.menu.append(
-        new MenuItem({
-          label: '删除',
+      this.menu = remote.Menu.buildFromTemplate([
+        {
+          label: this.$lang('remove'),
           click: () => {
             this.removeFolderClick(this.contextSelectFolder);
             if (this.currentSelectFolder === this.contextSelectFolder) {
               this.currentSelectFolder = this.folders[0];
             }
           },
-        }),
-      );
-      this.menu.append(
-        new MenuItem({
-          label: '打开文件夹',
+        },
+        {
+          label: this.$lang('openDir'),
           click: () => {
             remote.shell.openItem(this.currentSelectFolder);
           },
-        }),
-      );
+        },
+      ]);
     },
     addFolderClick() {
       const paths = remote.dialog.showOpenDialog({
-        title: '选择文件夹',
-        buttonLable: '添加',
+        title: this.$lang('chooseDir'),
+        buttonLable: this.$lang('choose'),
         properties: ['openDirectory', 'multiSelections'],
       });
 
       paths && this.addFolders(paths);
     },
-    popuMenu(folder) {
+    popupMenu(folder) {
       this.contextSelectFolder = folder;
       this.menu.popup({ window: remote.getCurrentWindow() });
     },
