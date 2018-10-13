@@ -29,6 +29,7 @@ export default {
     return {
       menu: null,
       currentSelectFolder: null,
+      contextSelectFolder: null
     };
   },
   filters: {
@@ -52,7 +53,10 @@ export default {
         new MenuItem({
           label: '删除',
           click: () => {
-            this.removeFolderClick(this.currentSelectFolder);
+            this.removeFolderClick(this.contextSelectFolder);
+            if (this.currentSelectFolder === this.contextSelectFolder) {
+              this.currentSelectFolder = this.folders[0];
+            }
           },
         }),
       );
@@ -75,7 +79,7 @@ export default {
       paths && this.addFolders(paths);
     },
     popuMenu(folder) {
-      this.currentSelectFolder = folder;
+      this.contextSelectFolder = folder;
       this.menu.popup({ window: remote.getCurrentWindow() });
     },
     removeFolderClick(path) {
