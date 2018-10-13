@@ -1,11 +1,18 @@
 import settings from 'electron-settings';
 
+/**
+ * @readonly
+ * @enum {string}
+ */
 export const configKeys = {
   initialized: 'initialized',
-  folders: 'folders',
+  folders: 'folders'
 };
 
 export default {
+  get folders() {
+    return settings.get(configKeys.folders);
+  },
   init() {
     if (settings.has(configKeys.initialized)) {
       return;
@@ -14,10 +21,11 @@ export default {
     settings.set(configKeys.initialized, true);
     settings.set(configKeys.folders, []);
   },
-  get folders() {
-    return settings.get(configKeys.folders);
-  },
+  /**
+   *
+   * @param {Array<string>} folders
+   */
   setFolders(folders) {
     settings.set(configKeys.folders, folders);
-  },
+  }
 };

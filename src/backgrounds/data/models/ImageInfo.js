@@ -1,13 +1,14 @@
 import db from '../index';
+import { forceToArray } from '../../../tools/utils';
 
-class ImageInfo {
-  constructor({ path, tags = [], info = [], colors = [] } = {}) {
-    this.path = path;
-    this.tags = tags;
-    this.info = info;
-    this.colors = colors;
-  }
-}
+/**
+ * @typedef {object} ImageInfo
+ * @property {string} path
+ * @property {Array<string>} tags
+ * @property {Array<string>} infos
+ * @property {Array<string>} colors
+ *
+ */
 
 export default {
   /**
@@ -15,6 +16,8 @@ export default {
    * @param {Array<ImageInfo> | ImageInfo} imageInfos
    */
   add(imageInfos) {
+    imageInfos = forceToArray(imageInfos);
+
     return new Promise((resolve, reject) => {
       db.insert(imageInfos, (err, doc) => {
         if (err) {
@@ -48,7 +51,7 @@ export default {
    */
   remove(path) {
     return new Promise((resolve, reject) => {
-      db.remove({ path }, (err) => {
+      db.remove({ path }, err => {
         if (err) {
           reject(err);
         } else {
@@ -56,5 +59,5 @@ export default {
         }
       });
     });
-  },
+  }
 };
