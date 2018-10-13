@@ -1,4 +1,4 @@
-# electron-pm-vue
+# vue-fantasy-img
 
 ## Project setup
 ```
