@@ -9,11 +9,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Index,
+      component: Index
     },
     {
       path: '/setting',
-      component: Setting,
-    },
-  ],
+      component: Setting
+    }
+  ]
 });

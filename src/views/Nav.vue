@@ -37,13 +37,11 @@
 
 <script>
 export default {
-  name: 'Nav',
+  name: 'Nav'
 };
 </script>
 
 <style lang="less" scoped>
-@import url('../less/variables.less');
-
 .nav {
   display: flex;
 
@@ -58,7 +56,7 @@ export default {
     }
 
     .title {
-      color: --color-text-white;
+      color: var(--color-text-white);
       font-size: 22px;
     }
   }
@@ -88,7 +86,7 @@ export default {
   .controllers {
     width: 140px;
     display: flex;
-    background-color: --color-secondary;
+    background-color: var(--color-secondary);
     align-items: center;
 
     .controller {
@@ -99,7 +97,7 @@ export default {
 
       &:hover {
         .icon {
-          color: --color-text-white;
+          color: var(--color-text-white);
         }
       }
 
@@ -113,5 +111,3 @@ export default {
   }
 }
 </style>
-
-

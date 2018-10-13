@@ -24,10 +24,10 @@ export default {
   filters: {
     folderName(folder) {
       return path.basename(folder);
-    },
+    }
   },
   computed: {
-    ...mapState(['folders']),
+    ...mapState(['folders'])
   },
   mounted() {},
   methods: {
@@ -36,15 +36,15 @@ export default {
       const paths = remote.dialog.showOpenDialog({
         title: '选择文件夹',
         buttonLable: '添加',
-        properties: ['openDirectory', 'multiSelections'],
+        properties: ['openDirectory', 'multiSelections']
       });
 
       this.addFolders(paths);
     },
     removeFolderClick(path) {
       this.removeFolder(path);
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -57,5 +57,3 @@ export default {
   }
 }
 </style>
-
-

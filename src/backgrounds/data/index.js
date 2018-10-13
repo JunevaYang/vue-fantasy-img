@@ -3,7 +3,7 @@ import dbConfig from './configs.js';
 
 const db = new DataStore({
   filename: dbConfig.path,
-  autoload: true,
+  autoload: true
 });
 
 export default db;
